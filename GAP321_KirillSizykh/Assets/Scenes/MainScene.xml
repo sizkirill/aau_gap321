@@ -1,0 +1,14 @@
+<Scene name="MainScene">
+    <Actor src="Assets/Actors/Camera.xml">
+        <View name="CameraView" />
+    </Actor>
+
+    <Actor src="Assets/Actors/LeftyAgent.xml">
+        <Process name="MoveProcess" />
+        <Process name="RotationProcess" />
+    </Actor>
+    <Actor src="Assets/Actors/RightyAgent.xml">
+        <Process name="MoveProcess" />
+        <Process name="RotationProcess" />
+    </Actor>
+</Scene>

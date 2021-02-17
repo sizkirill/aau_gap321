@@ -1,0 +1,27 @@
+<Actor>
+  <TransformComponent>
+    <Position x="100" y="100" />
+    <RotationPoint x="0" y="0.96" />
+    <ScalePoint x="0" y="0.96" />
+    <Scale x="45" y="45" />
+  </TransformComponent>
+  <ArrowShape>
+    <Vertex x="-1" y="0" />
+    <Vertex x="0" y="1.92" />
+    <Vertex x="0" y="0.96" />
+    <Vertex x="1" y="0" />
+	<Color r="0" g="255" b="0" a="255" />
+  </ArrowShape>
+  <MoveComponent maxSpeed="150" maxAcceleration="300" acceleration="300">
+	  <Velocity x="0" y="0" />
+	  <Acceleration x="1" y="0" />
+  </MoveComponent>
+  <RotationComponent maxSpeed="120" acceleration="360" maxAcceleration="360">
+  </RotationComponent>
+  <ColliderComponent>
+    <Shape name="CircleShape" radius="45">
+        <Center x="0" y="0.96" />
+        <Color r="0" g="0" b="255" a="255" />
+    </Shape>
+  </ColliderComponent>
+</Actor>

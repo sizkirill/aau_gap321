@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Application">
+      <UniqueIdentifier>{D9DE78AF-4594-F1A4-CE88-EB7B3A3DE8A8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic">
+      <UniqueIdentifier>{93E89C0D-FFFC-C4BE-C87E-681E3452C1EF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic\Components">
+      <UniqueIdentifier>{52367bf1-9549-4fab-8d07-4b9edb9675a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic\Event">
+      <UniqueIdentifier>{e3c1ea98-cdca-4798-bce9-65ff9f059c2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic\Process">
+      <UniqueIdentifier>{e2b5c5c0-c8b8-430b-acf8-16bbcb9d45ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic\Views">
+      <UniqueIdentifier>{a18b4b65-55ea-48c2-b628-aa639efc2106}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic\Scenes">
+      <UniqueIdentifier>{e980dcbe-1e14-4f14-acd9-7456b0f204ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic\Collision">
+      <UniqueIdentifier>{f6749682-0ed9-4425-a01b-8f614cc4bbcb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Logic\GAP321Game.h">
+      <Filter>Logic</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\Components\ArrowShape.h">
+      <Filter>Logic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Application\GAP321App.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Views\CameraView.h">
+      <Filter>Logic\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\Scenes\MainScene.h">
+      <Filter>Logic\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\Process\MoveProcess.h">
+      <Filter>Logic\Process</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\Process\RotationProcess.h">
+      <Filter>Logic\Process</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\Collision\CameraCollisionCallback.h">
+      <Filter>Logic\Collision</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Application\Main.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\GAP321Game.cpp">
+      <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\Components\ArrowShape.cpp">
+      <Filter>Logic\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Application\GAP321App.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Views\CameraView.cpp">
+      <Filter>Logic\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\Scenes\MainScene.cpp">
+      <Filter>Logic\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\Process\RotationProcess.cpp">
+      <Filter>Logic\Process</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\Process\MoveProcess.cpp">
+      <Filter>Logic\Process</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\Collision\CameraCollisionCallback.cpp">
+      <Filter>Logic\Collision</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
