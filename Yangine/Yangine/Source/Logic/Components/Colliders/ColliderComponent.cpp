@@ -102,7 +102,7 @@ bool yang::ColliderComponent::Collide(ColliderComponent* pOther)
     return m_pColliderShape->Collide(pOther->GetShape());
 }
 
-#ifdef DEBUG
+#ifdef DEBUG_DRAW
 bool yang::ColliderComponent::Render(IGraphics* pGraphics)
 {
     // DEBUG
@@ -119,7 +119,7 @@ void yang::ColliderComponent::Update(float deltaSeconds)
 void yang::ColliderComponent::OnCollisionStart(ColliderComponent* pOther)
 {
     // DEBUG
-#ifdef DEBUG
+#ifdef DEBUG_DRAW
     m_pColliderShape->SetColor(IColor(255, 0, 0, 255));
 #endif
 
@@ -132,7 +132,7 @@ void yang::ColliderComponent::OnCollisionStart(ColliderComponent* pOther)
 void yang::ColliderComponent::OnCollisionEnd(ColliderComponent* pOther)
 {
     // DEBUG
-#ifdef DEBUG
+#ifdef DEBUG_DRAW
     m_pColliderShape->SetColor(IColor(0, 0, 255, 255));
 #endif
 
@@ -148,7 +148,7 @@ void yang::ColliderComponent::UpdateCollision(ColliderComponent* pOther, float d
     //      unless we're updating the color. (Because it changes at OnCollisionStart & OnCollisionEnd =>
     //      after one collision ended, it changes color to blue and then it will be red only after another collision started.
     //      After last OnCollisionEnd it should become blue.
-#ifdef DEBUG
+#ifdef DEBUG_DRAW
     m_pColliderShape->SetColor(IColor(255, 0, 0, 255));
 #endif
 

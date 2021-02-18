@@ -48,7 +48,7 @@ public:
 
 	bool Collide(ColliderComponent* pOther);
 
-#ifdef DEBUG
+#ifdef DEBUG_DRAW
 	virtual bool Render(IGraphics* pGraphics) override;
 #endif
 	
