@@ -198,7 +198,6 @@ xcopy "$(ProjectDir)\Data" "$(OutDir)Data" /e /s /h /i /y</Command>
   <ItemGroup>
     <ClInclude Include="Source\Application\GAP321App.h" />
     <ClInclude Include="Source\Logic\Collision\CameraCollisionCallback.h" />
-    <ClInclude Include="Source\Logic\Components\ArrowShape.h" />
     <ClInclude Include="Source\Logic\GAP321Game.h" />
     <ClInclude Include="Source\Logic\Process\MoveProcess.h" />
     <ClInclude Include="Source\Logic\Process\RotationProcess.h" />
@@ -209,7 +208,6 @@ xcopy "$(ProjectDir)\Data" "$(OutDir)Data" /e /s /h /i /y</Command>
     <ClCompile Include="Source\Application\GAP321App.cpp" />
     <ClCompile Include="Source\Application\Main.cpp" />
     <ClCompile Include="Source\Logic\Collision\CameraCollisionCallback.cpp" />
-    <ClCompile Include="Source\Logic\Components\ArrowShape.cpp" />
     <ClCompile Include="Source\Logic\GAP321Game.cpp" />
     <ClCompile Include="Source\Logic\Process\MoveProcess.cpp" />
     <ClCompile Include="Source\Logic\Process\RotationProcess.cpp" />

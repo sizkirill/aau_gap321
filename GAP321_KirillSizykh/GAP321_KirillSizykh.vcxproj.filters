@@ -30,9 +30,6 @@
     <ClInclude Include="Source\Logic\GAP321Game.h">
       <Filter>Logic</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Logic\Components\ArrowShape.h">
-      <Filter>Logic\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Application\GAP321App.h">
       <Filter>Application</Filter>
     </ClInclude>
@@ -58,9 +55,6 @@
     </ClCompile>
     <ClCompile Include="Source\Logic\GAP321Game.cpp">
       <Filter>Logic</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Logic\Components\ArrowShape.cpp">
-      <Filter>Logic\Components</Filter>
     </ClCompile>
     <ClCompile Include="Source\Application\GAP321App.cpp">
       <Filter>Application</Filter>

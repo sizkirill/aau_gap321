@@ -73,8 +73,9 @@ bool yang::SpriteComponent::Render(IGraphics* pGraphics)
     assert(m_pTransform != nullptr);
 
     const FVec2& position = m_pTransform->GetPosition();
-    // m_textureDrawParams.m_pointToRotate = m_pTransform->GetRotationPoint();
-    // m_textureDrawParams.m_angle = m_pTransform->GetRotation();
+    auto& params = m_pSprite->GetDrawParams();
+    params.m_pointToRotate = m_pTransform->GetRotationPoint();
+    params.m_angle = Math::ToDegrees(m_pTransform->GetRotation());
     IRect dest = IRect{(i32)position.x - (m_spriteDimensions.x / 2), 
         (i32)position.y - (m_spriteDimensions.y / 2),
         m_spriteDimensions.x, 

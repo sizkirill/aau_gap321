@@ -4,7 +4,6 @@
 #include <Logic/Actor/ActorFactory.h>
 #include <Logic/Event/Events/CreateActorEvent.h>
 #include <Logic/Event/EventDispatcher.h>
-#include <Logic/Components/ArrowShape.h>
 #include <Logic/Process/MoveProcess.h>
 #include <Logic/Process/RotationProcess.h>
 #include <Logic/Scenes/MainScene.h>
@@ -48,7 +47,6 @@ void GAP321Game::RegisterCollisionCallbacks()
 
 void GAP321Game::RegisterComponents()
 {
-    m_actorFactory.RegisterComponent<ArrowShape>();
 }
 
 void GAP321Game::RegisterProcesses()

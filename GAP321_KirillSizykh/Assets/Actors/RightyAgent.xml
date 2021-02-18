@@ -1,17 +1,11 @@
 <Actor>
   <TransformComponent>
     <Position x="100" y="100" />
-    <RotationPoint x="0" y="0.96" />
-    <ScalePoint x="0" y="0.96" />
-    <Scale x="45" y="45" />
+    <RotationPoint x="64" y="64" />
   </TransformComponent>
-  <ArrowShape>
-    <Vertex x="-1" y="0" />
-    <Vertex x="0" y="1.92" />
-    <Vertex x="0" y="0.96" />
-    <Vertex x="1" y="0" />
-	<Color r="0" g="255" b="0" a="255" />
-  </ArrowShape>
+  <SpriteComponent Src="Assets/Sprites/actor2.png">
+    <Dimensions width="128" height="128" />
+  </SpriteComponent>
   <MoveComponent maxSpeed="150" maxAcceleration="300" acceleration="300">
 	  <Velocity x="0" y="0" />
 	  <Acceleration x="1" y="0" />
@@ -19,8 +13,8 @@
   <RotationComponent maxSpeed="120" acceleration="360" maxAcceleration="360">
   </RotationComponent>
   <ColliderComponent>
-    <Shape name="CircleShape" radius="45">
-        <Center x="0" y="0.96" />
+    <Shape name="CircleShape" radius="64">
+        <Center x="0" y="0" />
         <Color r="0" g="0" b="255" a="255" />
     </Shape>
   </ColliderComponent>
