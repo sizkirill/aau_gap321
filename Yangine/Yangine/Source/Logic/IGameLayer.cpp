@@ -50,6 +50,7 @@ bool yang::IGameLayer::Init(const yang::ApplicationLayer& app)
             SpawnActor(pFilepath, {}, maybeLocation);
         });
 
+    m_pGraphics = app.GetGraphics();
     m_viewFactory.Init(app);
     m_processFactory.Init();
 
@@ -114,6 +115,8 @@ void yang::IGameLayer::Update(float deltaSeconds)
 
 void yang::IGameLayer::Cleanup()
 {
+    m_pCurrentScene = nullptr;
+
     for (auto& sceneContainer : m_scenes)
     {
         for (auto pScene : sceneContainer)

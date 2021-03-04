@@ -84,6 +84,9 @@ public:
     /// \param manager - the Lua environment manager \see yang::LuaManager
 	static void RegisterToLua(const LuaManager& manager);
 
+#ifdef DEBUG_PANEL
+	virtual void AttachToDebugPanel(DebugPanel& panel, DebugPanel::ActorSection& actorSection) const override final;
+#endif
 private:
 	// --------------------------------------------------------------------- //
 	// Private Member Variables

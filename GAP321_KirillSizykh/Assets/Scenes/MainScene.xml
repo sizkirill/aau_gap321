@@ -1,14 +1,9 @@
-<Scene name="MainScene">
+<Scene name="MainScene" debugFont="Assets/Fonts/courier.ttf">
     <Actor src="Assets/Actors/Camera.xml">
         <View name="CameraView" />
     </Actor>
 
-    <Actor src="Assets/Actors/LeftyAgent.xml">
-        <Process name="MoveProcess" />
-        <Process name="RotationProcess" />
-    </Actor>
     <Actor src="Assets/Actors/RightyAgent.xml">
-        <Process name="MoveProcess" />
-        <Process name="RotationProcess" />
+        <Process name="KinematicMovement" />
     </Actor>
 </Scene>

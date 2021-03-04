@@ -8,6 +8,8 @@
 #include <Logic/Scripting/LuaManager.h>
 #include <Lua/lua.hpp>
 
+#include <Logic/Scene/DebugPanel.h>
+
 using yang::Actor;
 
 yang::Actor::Actor(Id id, std::shared_ptr<Scene> pOwner)
@@ -112,3 +114,14 @@ void yang::Actor::RegisterToLua(const LuaManager& manager)
 {
 	manager.ExposeToLua<IComponent*(Actor::*)(const char*) const>("GetComponent", &Actor::GetComponent);
 }
+
+#ifdef DEBUG_PANEL
+void yang::Actor::AttachToDebugPanel(DebugPanel& panel) const
+{
+    auto& actorSection = panel.AddActorSection(m_id);
+    for (const auto& [compId, pComponent] : m_components)
+    {
+        pComponent->AttachToDebugPanel(panel, actorSection);
+    }
+}
+#endif

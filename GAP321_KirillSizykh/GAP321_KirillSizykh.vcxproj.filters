@@ -25,6 +25,15 @@
     <Filter Include="Logic\Collision">
       <UniqueIdentifier>{f6749682-0ed9-4425-a01b-8f614cc4bbcb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Logic\AI">
+      <UniqueIdentifier>{b097226f-859f-4854-94b5-69955bc7282a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic\Map">
+      <UniqueIdentifier>{97d9d567-efd6-432d-8a81-a72a6a52998a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic\AI\Pathfinding">
+      <UniqueIdentifier>{ed2cf19a-445c-4c55-b36b-7e2462260923}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Logic\GAP321Game.h">
@@ -47,6 +56,51 @@
     </ClInclude>
     <ClInclude Include="Source\Logic\Collision\CameraCollisionCallback.h">
       <Filter>Logic\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\Components\VisionComponent.h">
+      <Filter>Logic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\Map\BasicPathfindingMap.h">
+      <Filter>Logic\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\AI\Behaviors\ArriveBehavior.h">
+      <Filter>Logic\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\AI\Behaviors\PursueBehavior.h">
+      <Filter>Logic\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\AI\Behaviors\SeekFleeBehavior.h">
+      <Filter>Logic\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\AI\Behaviors\SteeringBehavior.h">
+      <Filter>Logic\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\AI\Behaviors\TargetedSteeringBehavior.h">
+      <Filter>Logic\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\AI\BehaviorState.h">
+      <Filter>Logic\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\AI\BehaviorStateMachine.h">
+      <Filter>Logic\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\Components\MapComponent.h">
+      <Filter>Logic\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\AI\Pathfinding\GraphSearcher.h">
+      <Filter>Logic\AI\Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\Event\RequestPathEvent.h">
+      <Filter>Logic\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\Event\ReceivePathEvent.h">
+      <Filter>Logic\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\Process\KinematicMovement.h">
+      <Filter>Logic\Process</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Logic\Components\AgentComponent.h">
+      <Filter>Logic\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +127,45 @@
     </ClCompile>
     <ClCompile Include="Source\Logic\Collision\CameraCollisionCallback.cpp">
       <Filter>Logic\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\Components\VisionComponent.cpp">
+      <Filter>Logic\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\Map\BasicPathfindingMap.cpp">
+      <Filter>Logic\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\AI\Behaviors\ArriveBehavior.cpp">
+      <Filter>Logic\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\AI\Behaviors\PursueBehavior.cpp">
+      <Filter>Logic\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\AI\Behaviors\SeekFleeBehavior.cpp">
+      <Filter>Logic\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\AI\Behaviors\SteeringBehavior.cpp">
+      <Filter>Logic\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\AI\Behaviors\TargetedSteeringBehavior.cpp">
+      <Filter>Logic\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\Components\MapComponent.cpp">
+      <Filter>Logic\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\AI\Pathfinding\GraphSearcher.cpp">
+      <Filter>Logic\AI\Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\Event\RequestPathEvent.cpp">
+      <Filter>Logic\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\Event\ReceivePathEvent.cpp">
+      <Filter>Logic\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\Process\KinematicMovement.cpp">
+      <Filter>Logic\Process</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\Components\AgentComponent.cpp">
+      <Filter>Logic\Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -97,7 +97,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;DEBUG_DRAW;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\Yangine\Yangine\Source;..\Yangine\Toolset\Include;Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -105,7 +105,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <AdditionalDependencies>vld.lib;SDL2.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;SDL2main.lib;Lua-5.3.5_$(PlatformShortName)_$(Configuration).lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\Yangine\Toolset\x86;..\Yangine\Yangine\Binaries\Debug_x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
@@ -121,7 +121,7 @@ xcopy "$(SolutionDir)Yangine\Toolset\$(PlatformShortName)\*.pdb" "$(OutDir)" /d 
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;DEBUG_DRAW;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\Yangine\Yangine\Source;..\Yangine\Toolset\Include;Source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -129,7 +129,7 @@ xcopy "$(SolutionDir)Yangine\Toolset\$(PlatformShortName)\*.pdb" "$(OutDir)" /d 
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
       <AdditionalDependencies>vld.lib;SDL2.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;SDL2main.lib;Lua-5.3.5_$(PlatformShortName)_$(Configuration).lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\Yangine\Toolset\x64;..\Yangine\Yangine\Binaries\Debug_x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
@@ -197,8 +197,23 @@ xcopy "$(ProjectDir)\Data" "$(OutDir)Data" /e /s /h /i /y</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Source\Application\GAP321App.h" />
+    <ClInclude Include="Source\Logic\AI\BehaviorState.h" />
+    <ClInclude Include="Source\Logic\AI\BehaviorStateMachine.h" />
+    <ClInclude Include="Source\Logic\AI\Behaviors\ArriveBehavior.h" />
+    <ClInclude Include="Source\Logic\AI\Behaviors\PursueBehavior.h" />
+    <ClInclude Include="Source\Logic\AI\Behaviors\SeekFleeBehavior.h" />
+    <ClInclude Include="Source\Logic\AI\Behaviors\SteeringBehavior.h" />
+    <ClInclude Include="Source\Logic\AI\Behaviors\TargetedSteeringBehavior.h" />
+    <ClInclude Include="Source\Logic\AI\Pathfinding\GraphSearcher.h" />
     <ClInclude Include="Source\Logic\Collision\CameraCollisionCallback.h" />
+    <ClInclude Include="Source\Logic\Components\AgentComponent.h" />
+    <ClInclude Include="Source\Logic\Components\MapComponent.h" />
+    <ClInclude Include="Source\Logic\Components\VisionComponent.h" />
+    <ClInclude Include="Source\Logic\Event\ReceivePathEvent.h" />
+    <ClInclude Include="Source\Logic\Event\RequestPathEvent.h" />
     <ClInclude Include="Source\Logic\GAP321Game.h" />
+    <ClInclude Include="Source\Logic\Map\BasicPathfindingMap.h" />
+    <ClInclude Include="Source\Logic\Process\KinematicMovement.h" />
     <ClInclude Include="Source\Logic\Process\MoveProcess.h" />
     <ClInclude Include="Source\Logic\Process\RotationProcess.h" />
     <ClInclude Include="Source\Logic\Scenes\MainScene.h" />
@@ -207,8 +222,21 @@ xcopy "$(ProjectDir)\Data" "$(OutDir)Data" /e /s /h /i /y</Command>
   <ItemGroup>
     <ClCompile Include="Source\Application\GAP321App.cpp" />
     <ClCompile Include="Source\Application\Main.cpp" />
+    <ClCompile Include="Source\Logic\AI\Behaviors\ArriveBehavior.cpp" />
+    <ClCompile Include="Source\Logic\AI\Behaviors\PursueBehavior.cpp" />
+    <ClCompile Include="Source\Logic\AI\Behaviors\SeekFleeBehavior.cpp" />
+    <ClCompile Include="Source\Logic\AI\Behaviors\SteeringBehavior.cpp" />
+    <ClCompile Include="Source\Logic\AI\Behaviors\TargetedSteeringBehavior.cpp" />
+    <ClCompile Include="Source\Logic\AI\Pathfinding\GraphSearcher.cpp" />
     <ClCompile Include="Source\Logic\Collision\CameraCollisionCallback.cpp" />
+    <ClCompile Include="Source\Logic\Components\AgentComponent.cpp" />
+    <ClCompile Include="Source\Logic\Components\MapComponent.cpp" />
+    <ClCompile Include="Source\Logic\Components\VisionComponent.cpp" />
+    <ClCompile Include="Source\Logic\Event\ReceivePathEvent.cpp" />
+    <ClCompile Include="Source\Logic\Event\RequestPathEvent.cpp" />
     <ClCompile Include="Source\Logic\GAP321Game.cpp" />
+    <ClCompile Include="Source\Logic\Map\BasicPathfindingMap.cpp" />
+    <ClCompile Include="Source\Logic\Process\KinematicMovement.cpp" />
     <ClCompile Include="Source\Logic\Process\MoveProcess.cpp" />
     <ClCompile Include="Source\Logic\Process\RotationProcess.cpp" />
     <ClCompile Include="Source\Logic\Scenes\MainScene.cpp" />

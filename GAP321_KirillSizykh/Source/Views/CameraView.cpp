@@ -40,13 +40,9 @@ void CameraView::UpdateInput()
 
 void CameraView::ViewScene()
 {
-    m_pGraphics->StartDrawing(0, 0, 0, 255);
-
     auto& actors = m_pGameLayer->GetActors();
     for (auto& actorPair : actors)
     {
         actorPair.second->Render(m_pGraphics);
     }
-
-    m_pGraphics->EndDrawing();
 }

@@ -31,16 +31,15 @@ std::shared_ptr<yang::IFont> yang::SDLFontLoader::LoadFont(IResource* pResource,
 		return nullptr;
 	}
 
-    SDLFont* pSDLFont = new SDLFont(pResource, pFont, fontSize);
+    auto pSDLFont = std::make_shared<SDLFont>(pResource, pFont, fontSize);
 
     if (!pSDLFont->Init(m_pGraphics))
     {
         LOG(Error, "Failed to initialize font. Error: %s", SDL_GetError());
-        delete pSDLFont;
         return nullptr;
     }
 
-	return std::shared_ptr<SDLFont>(pSDLFont);
+    return pSDLFont;
 }
 
 bool yang::SDLFontLoader::Init(IGraphics* pGraphics)

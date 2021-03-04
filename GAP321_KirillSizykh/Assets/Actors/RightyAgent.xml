@@ -1,21 +1,20 @@
-<Actor>
+<Actor tag="green">
   <TransformComponent>
-    <Position x="100" y="100" />
-    <RotationPoint x="64" y="64" />
+    <Position x="840" y="225" />
+    <RotationPoint x="12" y="12" />
   </TransformComponent>
   <SpriteComponent Src="Assets/Sprites/actor2.png">
-    <Dimensions width="128" height="128" />
+    <Dimensions width="24" height="24" />
   </SpriteComponent>
-  <MoveComponent maxSpeed="150" maxAcceleration="300" acceleration="300">
-	  <Velocity x="0" y="0" />
-	  <Acceleration x="1" y="0" />
-  </MoveComponent>
-  <RotationComponent maxSpeed="120" acceleration="360" maxAcceleration="360">
-  </RotationComponent>
   <ColliderComponent>
-    <Shape name="CircleShape" radius="64">
+    <Shape name="CircleShape" radius="12">
         <Center x="0" y="0" />
         <Color r="0" g="0" b="255" a="255" />
     </Shape>
   </ColliderComponent>
+  <KinematicComponent maxSpeed="100" maxAcceleration="200" angularVelocity="0" maxAngularVelocity="45" angularAcceleration="0" maxAngularAcceleration="30">
+    <Velocity x="0" y="0" />
+	  <Acceleration x="0" y="0" />
+  </KinematicComponent>
+  <AgentComponent />
 </Actor>

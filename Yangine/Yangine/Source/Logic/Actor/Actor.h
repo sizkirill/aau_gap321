@@ -21,6 +21,10 @@ namespace yang
     class IView;
     class Scene;
 
+#ifdef DEBUG_PANEL
+    class DebugPanel;
+#endif
+
 /** \class Actor */
 /** Represents an object in the game */
 class Actor
@@ -99,6 +103,10 @@ public:
 	/// Not intended for use outside of IGameLayer::Init
     /// \param manager - the Lua environment manager \see yang::LuaManager
 	static void RegisterToLua(const LuaManager& manager);
+
+#ifdef DEBUG_PANEL
+    void AttachToDebugPanel(DebugPanel& panel) const;
+#endif
 private:
 	// --------------------------------------------------------------------- //
 	// Private Member Variables

@@ -3,6 +3,11 @@
 #include <string>
 #include <memory>
 #include <Utils/Typedefs.h>
+
+#ifdef DEBUG_PANEL
+#include <Logic/Scene/DebugPanel.h>
+#endif
+
 /** \file IComponent.h */
 /** IComponent interface description */
 
@@ -16,18 +21,12 @@ namespace yang
     class Actor;
     class IGraphics;
     class ActorFactory;
+
 /** \class IComponent */
 /** Base class for all actor components */
 class IComponent
 {
 public:
-	// --------------------------------------------------------------------- //
-	// Public Member Variables
-	// --------------------------------------------------------------------- //
-	// --------------------------------------------------------------------- //
-	// Public Member Functions
-	// --------------------------------------------------------------------- //
-
 	/// Constructor
     /// \param pOwner - Actor that owns the component
     /// \param name - Name of the component
@@ -54,6 +53,10 @@ public:
     /// \return true if render was successful
     virtual bool Render(IGraphics* pGraphics) { return true; }
 
+#ifdef DEBUG_PANEL
+    virtual void AttachToDebugPanel(DebugPanel& panel, DebugPanel::ActorSection& actorSection) const {}
+#endif
+
     /// Hash the name of the component into a 32-bit integer
     /// \param name - component name
     /// \return hashed value
@@ -69,16 +72,7 @@ private:
     Actor* m_pOwner;    ///< Actor, owning this component
     Id m_id;            ///< Hash value of this component's name
 
-	// --------------------------------------------------------------------- //
-	// Private Member Functions
-	// --------------------------------------------------------------------- //
-
-
 public:
-	// --------------------------------------------------------------------- //
-	// Accessors & Mutators
-	// --------------------------------------------------------------------- //
-
     /// Get this component id
     Id GetId() { return m_id; }
 

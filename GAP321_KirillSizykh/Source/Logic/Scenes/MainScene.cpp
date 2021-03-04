@@ -6,6 +6,7 @@
 #include <Logic/Shapes/CircleShape.h>
 #include <Logic/Actor/Actor.h>
 #include <Utils/Random.h>
+#include <Utils/TinyXml2/tinyxml2.h>
 
 #include <cassert>
 
@@ -23,6 +24,17 @@ std::shared_ptr<yang::Scene> yang::Scene::CreateScene<MainScene::GetHashName()>(
 MainScene::MainScene(yang::IGameLayer& owner)
     :yang::Scene(owner)
 {
+}
+
+MainScene::~MainScene()
+{
+
+}
+
+bool MainScene::InitImpl(tinyxml2::XMLElement* pData)
+{
+
+    return true;
 }
 
 void MainScene::OnSceneLoad()

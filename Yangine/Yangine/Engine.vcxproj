@@ -93,7 +93,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;DEBUG_DRAW;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>Source;..\Toolset\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -108,7 +108,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;DEBUG_DRAW;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>Source;..\Toolset\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -221,6 +221,7 @@
     <ClInclude Include="Source\Logic\Process\ProcessFactory.h" />
     <ClInclude Include="Source\Logic\Process\ProcessManager.h" />
     <ClInclude Include="Source\Logic\Process\Timers\DelayProcess.h" />
+    <ClInclude Include="Source\Logic\Scene\DebugPanel.h" />
     <ClInclude Include="Source\Logic\Scene\Scene.h" />
     <ClInclude Include="Source\Logic\Scripting\LuaCallback.h" />
     <ClInclude Include="Source\Logic\Scripting\LuaManager.h" />
@@ -306,6 +307,7 @@
     <ClCompile Include="Source\Logic\Process\ProcessFactory.cpp" />
     <ClCompile Include="Source\Logic\Process\ProcessManager.cpp" />
     <ClCompile Include="Source\Logic\Process\Timers\DelayProcess.cpp" />
+    <ClCompile Include="Source\Logic\Scene\DebugPanel.cpp" />
     <ClCompile Include="Source\Logic\Scene\Scene.cpp" />
     <ClCompile Include="Source\Logic\Scripting\LuaCallback.cpp" />
     <ClCompile Include="Source\Logic\Scripting\LuaManager.cpp" />

@@ -12,4 +12,7 @@
       <CameraCollisionCallback />
     </CollisionCallback>
   </ColliderComponent>
+  <MapComponent>
+    <Map src="Assets/Maps/BasicPathfindingMap.tmx" />
+  </MapComponent>
 </Actor>

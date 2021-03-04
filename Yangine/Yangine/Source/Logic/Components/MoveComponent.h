@@ -40,6 +40,10 @@ public:
     /// \return "MoveComponent"
     static constexpr const char* GetName() { return "MoveComponent"; }
 
+#ifdef DEBUG_PANEL
+    virtual void AttachToDebugPanel(DebugPanel& panel, DebugPanel::ActorSection& actorSection) const override final;
+#endif
+
 private:
     float m_maxSpeed;
     float m_maxAcceleration;

@@ -7,6 +7,7 @@
 #include <Logic/Scripting/LuaManager.h>
 #include <Logic/Components/SpriteComponent.h>
 #include <Logic/Components/TextComponent.h>
+#include <Logic/Scene/DebugPanel.h>
 
 #include <Utils/Random.h>
 #include <cassert>
@@ -122,6 +123,14 @@ void yang::TransformComponent::RegisterToLua(const LuaManager& manager)
 	manager.ExposeToLua("GetDimensions", &TransformComponent::GetDimensions);
 	manager.ExposeToLua("RotateTransform", &TransformComponent::Rotate);
 }
+
+#ifdef DEBUG_PANEL
+void yang::TransformComponent::AttachToDebugPanel(DebugPanel& panel, DebugPanel::ActorSection& actorSection) const
+{
+	auto& componentSection = panel.AddSection(GetName(), actorSection);
+	panel.AttachToDebugPanel(componentSection, "Position", [this]() {return "x: " + std::to_string(m_position.x) + ". y: " + std::to_string(m_position.y); });
+}
+#endif
 
 void yang::TransformComponent::UpdateTransformMatrix()
 {

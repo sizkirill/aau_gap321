@@ -11,6 +11,12 @@
 #include <Views/IView.h>
 #include <Utils/Typedefs.h>
 #include <Utils/Vector2.h>
+#include <Logic/Event/EventListener.h>
+#include <Logic/Event/Input/KeyboardInputEvent.h>
+
+#ifdef DEBUG_PANEL
+#include <Logic/Scene/DebugPanel.h>
+#endif
 
 namespace tinyxml2
 {
@@ -32,6 +38,8 @@ namespace yang
         virtual ~Scene() = default;
 
         bool Init(tinyxml2::XMLElement* pData);
+
+        virtual bool InitImpl(tinyxml2::XMLElement* pData) = 0;
 
         /// Add view to the list of views
         /// \param pView - unique pointer to a View to add
@@ -94,6 +102,12 @@ namespace yang
         std::vector<Id> m_actorsToKill;                             ///< Collection of IDs of actors that are going to be destroyed at next frame
         std::vector<std::unique_ptr<IView>> m_pViews;               ///< Collection of all views
         std::shared_ptr<CollisionSystem> m_pCollisionSystem;
+    
+#ifdef DEBUG_PANEL
+        bool m_showDebugPanel;
+        EventListener<KeyboardInputEvent> m_showDebugEvent;
+        DebugPanel m_debugPanel;
+#endif
     private:
         /// Internal helper function. Deletes view by it's index in the vector
         /// \param index - view's index in the vector

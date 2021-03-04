@@ -21,6 +21,7 @@ namespace yang
 {
     class ApplicationLayer;
     class ProcessManager;
+    class IGraphics;
 /** \class IGameLayer */
 /** Interface for the game logic. Must be inherited in the Game project */
 class IGameLayer
@@ -99,6 +100,7 @@ protected:
     CollisionCallbackFactory m_collisionCallbackFactory;        ///< Instance of CollisionCallbackFactory that creates collision callbacks from XML.
     ProcessFactory m_processFactory;                            ///< Instance of ProcessFactory that creates processes and attaches them to actors.
     LuaManager m_luaManager;                                    ///< Instance of a LuaManager
+    IGraphics* m_pGraphics;
 
     // --------------------------------------------------------------------- //
     // Protected Member Functions
@@ -174,6 +176,7 @@ public:
     ViewFactory& GetViewFactory() { return m_viewFactory; }
     CollisionCallbackFactory& GetCollisionCallbackFactory() { return m_collisionCallbackFactory; }
     ProcessFactory& GetProcessFactory() { return m_processFactory; }
+    IGraphics* GetRenderer() const { return m_pGraphics; }
 };
 template<class ActualScene, class ...Args>
 inline void IGameLayer::RegisterScene(Args ...args)

@@ -9,6 +9,10 @@
 #include <Utils/TinyXml2/tinyxml2.h>
 #include <Utils/Vector2.h>
 #include <Utils/XMLHelpers.h>
+#include <Application/Resources/ResourceCache.h>
+#include <Application/Graphics/Fonts/IFont.h>
+
+#include <Application/Graphics/Fonts/FontString.h>
 
 using namespace yang;
 
@@ -26,6 +30,23 @@ bool yang::Scene::Init(tinyxml2::XMLElement* pData)
 
     m_name = pData->Attribute("name");
     m_hashName = StringHash32(m_name.data());
+
+#ifdef DEBUG_PANEL
+    const char* pFontSrc = pData->Attribute("debugFont");
+    auto pFont = ResourceCache::Get()->Load<IFont>(pFontSrc, 16);
+    m_debugPanel.Init(pFont);
+    m_showDebugPanel = false;
+
+    m_showDebugEvent.Register([this](yang::IEvent* pEvent)
+        {
+            assert(pEvent->GetEventId() == KeyboardInputEvent::kEventId);
+            auto pKeyboardEvent = static_cast<KeyboardInputEvent*>(pEvent);
+            if (pKeyboardEvent->GetKeyCode() == IKeyboard::KeyCode::kTAB && pKeyboardEvent->GetEventType() == KeyboardInputEvent::EventType::kKeyReleased)
+            {
+                m_showDebugPanel = !m_showDebugPanel;
+            }
+        });
+#endif
 
     for (XMLElement* pActorData = pData->FirstChildElement("Actor"); pActorData != nullptr; pActorData = pActorData->NextSiblingElement("Actor"))
     {
@@ -79,7 +100,7 @@ bool yang::Scene::Init(tinyxml2::XMLElement* pData)
         }
     }
 
-    return true;
+    return InitImpl(pData);
 }
 
 void yang::Scene::AddView(std::unique_ptr<IView> pView)
@@ -143,20 +164,38 @@ void yang::Scene::Update(float deltaSeconds)
 
 void yang::Scene::Render()
 {
+    m_owner.GetRenderer()->StartDrawing(0, 0, 0, 255);
     for (auto& pView : m_pViews)
     {
         pView->ViewScene();
     }
+
+#ifdef DEBUG_PANEL
+    if (m_showDebugPanel)
+        m_debugPanel.Render(m_owner.GetRenderer(), { 800.f, 50.f });
+#endif
+
+    m_owner.GetRenderer()->EndDrawing();
 }
 
 void yang::Scene::Cleanup()
 {
+#ifdef DEBUG_PANEL
+    for (auto& [actorId, pActor] : m_actors)
+    {
+        m_debugPanel.RemoveActor(actorId);
+    }
+
+    m_debugPanel.Cleanup();
+#endif
+
     for (auto& pView : m_pViews)
     {
         pView->DetachActor();
         pView.reset();
     }
 
+    m_processManager.AbortAllProcesses();
     m_actors.clear();
     m_actorsToSpawn.clear();
     m_queuedActorIds.clear();
@@ -180,6 +219,10 @@ std::shared_ptr<Actor> yang::Scene::SpawnActor(const char* filepath, std::option
         {
             pTransform->SetPosition(*whereToSpawn);
         }
+
+#ifdef DEBUG_PANEL
+        pActor->AttachToDebugPanel(m_debugPanel);
+#endif
     }
 
     return pActor;
@@ -205,6 +248,9 @@ std::shared_ptr<Actor> yang::Scene::SpawnActor(std::shared_ptr<IResource> pResou
 
 void yang::Scene::DestroyActor(Id actorId)
 {
+#ifdef DEBUG_PANEL
+    m_debugPanel.RemoveActor(actorId);
+#endif
     m_actorsToKill.emplace_back(actorId);
 }
 

@@ -1,4 +1,4 @@
-<Actor>
+<Actor tag="red">
   <TransformComponent>
     <Position x="1000" y="450" />
     <RotationPoint x="50" y="50" />
@@ -6,16 +6,29 @@
   <SpriteComponent Src="Assets/Sprites/actor2.png">
     <Dimensions width="100" height="100" />
   </SpriteComponent>
-  <MoveComponent maxSpeed="200" maxAcceleration="350" acceleration="350">
+  <MoveComponent maxSpeed="150" maxAcceleration="300" acceleration="300">
 	  <Velocity x="0" y="0" />
-	  <Acceleration x="-1" y="0" />
+	  <Acceleration x="-0.5" y="-0.5" />
   </MoveComponent>
   <RotationComponent maxSpeed="120" acceleration="-180" maxAcceleration="180">
   </RotationComponent>
+  <VisionComponent>
+    <Shape name="ConeShape" radius="450" fov="45" orientation="0">
+        <Center x="0" y="0" />
+        <Color r="0" g="0" b="255" a="255" />
+    </Shape>
+    <CollisionCallback>
+      <RedVisionCallback />
+    </CollisionCallback>
+  </VisionComponent>
   <ColliderComponent>
     <Shape name="CircleShape" radius="50">
         <Center x="0" y="0" />
         <Color r="0" g="0" b="255" a="255" />
     </Shape>
   </ColliderComponent>
+  <AiComponent start="WaitBehavior">
+    <Behavior name="WaitBehavior" />
+    <Behavior name="PursueBehavior" target="green" />
+  </AiComponent>
 </Actor>

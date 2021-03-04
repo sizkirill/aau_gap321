@@ -12,12 +12,14 @@ public:
 	const char* GetGameName() const override final { return "GAP321_KirillSizykh"; }
     virtual bool Init(const yang::ApplicationLayer& app) override final;
 
+private:
+
+private:
 	void RegisterEvents();
 	void RegisterCollisionCallbacks();
 	void RegisterComponents();
 	void RegisterProcesses();
 	void RegisterViews();
 	void RegisterScenes();
-private:
-
+	void RegisterBehaviors();
 };

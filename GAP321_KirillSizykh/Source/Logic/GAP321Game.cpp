@@ -6,8 +6,12 @@
 #include <Logic/Event/EventDispatcher.h>
 #include <Logic/Process/MoveProcess.h>
 #include <Logic/Process/RotationProcess.h>
+#include <Logic/Process/KinematicMovement.h>
 #include <Logic/Scenes/MainScene.h>
 #include <Logic/Collision/CameraCollisionCallback.h>
+#include <Logic/Components/AgentComponent.h>
+#include <Logic/Components/VisionComponent.h>
+#include <Logic/Components/MapComponent.h>
 #include <Application/Resources/ResourceCache.h>
 #include <Views/CameraView.h>
 
@@ -30,6 +34,7 @@ bool GAP321Game::Init(const yang::ApplicationLayer& app)
     RegisterProcesses();
     RegisterViews();
     RegisterScenes();
+    RegisterBehaviors();
 
     LoadSceneAndSwitch("Assets/Scenes/MainScene.xml");
 
@@ -47,12 +52,16 @@ void GAP321Game::RegisterCollisionCallbacks()
 
 void GAP321Game::RegisterComponents()
 {
+    m_actorFactory.RegisterComponent<AgentComponent>();
+    m_actorFactory.RegisterComponent<VisionComponent>();
+    m_actorFactory.RegisterComponent<MapComponent>();
 }
 
 void GAP321Game::RegisterProcesses()
 {
     m_processFactory.RegisterProcess<RotationProcess>();
     m_processFactory.RegisterProcess<MoveProcess>();
+    m_processFactory.RegisterProcess<KinematicMovement>();
 }
 
 void GAP321Game::RegisterViews()
@@ -63,4 +72,9 @@ void GAP321Game::RegisterViews()
 void GAP321Game::RegisterScenes()
 {
     RegisterScene<MainScene>();
+}
+
+void GAP321Game::RegisterBehaviors()
+{
+
 }

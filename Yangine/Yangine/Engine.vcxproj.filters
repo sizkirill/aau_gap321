@@ -369,6 +369,9 @@
     <ClInclude Include="Source\Views\ViewFactory.h">
       <Filter>Views</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Logic\Scene\DebugPanel.h">
+      <Filter>Logic\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application\ApplicationGlobals.cpp">
@@ -592,6 +595,9 @@
     </ClCompile>
     <ClCompile Include="Source\Views\ViewFactory.cpp">
       <Filter>Views</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Logic\Scene\DebugPanel.cpp">
+      <Filter>Logic\Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

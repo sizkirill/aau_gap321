@@ -50,6 +50,7 @@ bool yang::SDLFont::Init(IGraphics* pGraphics)
 
 	for (unsigned char c = 32; c < 255; ++c)
 	{
+		SDL_Surface* pGlyphSurfaceBack = TTF_RenderGlyph_Blended(m_pFont, c, { 0,0,0,255 });
 		SDL_Surface* pGlyphSurface = TTF_RenderGlyph_Blended(m_pFont, c, { 255,255,255,255 });
 
 		Glyph glyph;
@@ -62,6 +63,9 @@ bool yang::SDLFont::Init(IGraphics* pGraphics)
 		SDLTexture* pGlyphTexture = new SDLTexture();
 		pGlyphTexture->Init(static_cast<SDL_Renderer*>(m_pSDLRenderer->GetNativeRenderer()), pGlyphSurface);
 
+		SDLTexture* pGlyphBackTexture = new SDLTexture();
+		pGlyphBackTexture->Init(static_cast<SDL_Renderer*>(m_pSDLRenderer->GetNativeRenderer()), pGlyphSurfaceBack);
+
 		if (startX + glyph.m_srcRect.width >= textureDimension)
 		{
 			startX = 0;
@@ -70,11 +74,14 @@ bool yang::SDLFont::Init(IGraphics* pGraphics)
 
 		glyph.m_srcRect.x = startX;
 		glyph.m_srcRect.y = startY;
-		m_glyphs.push_back(glyph);
 
 		SDL_FreeSurface(pGlyphSurface);
+		SDL_FreeSurface(pGlyphSurfaceBack);
 
+		m_pSDLRenderer->DrawTexture(pGlyphBackTexture, glyph.m_srcRect);
 		m_pSDLRenderer->DrawTexture(pGlyphTexture, glyph.m_srcRect);
+
+		m_glyphs.push_back(glyph);
 
 		startX += glyph.m_srcRect.width;
 		delete pGlyphTexture;

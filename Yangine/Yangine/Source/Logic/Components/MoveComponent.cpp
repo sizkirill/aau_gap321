@@ -61,6 +61,17 @@ bool yang::MoveComponent::Init(tinyxml2::XMLElement* pData)
     return true;
 }
 
+#ifdef DEBUG_PANEL
+void yang::MoveComponent::AttachToDebugPanel(DebugPanel& panel, DebugPanel::ActorSection& actorSection) const
+{
+    auto& componentSection = panel.AddSection(GetName(), actorSection);
+    panel.AttachToDebugPanel(componentSection, "Speed", [this]() {return std::to_string(m_speed); });
+    panel.AttachToDebugPanel(componentSection, "Acceleration", [this]() {return std::to_string(m_acceleration); });
+    panel.AttachToDebugPanel(componentSection, "Velocity dir", [this]() {return "x: " + std::to_string(m_velocityDirection.x) + "; y: " + std::to_string(m_velocityDirection.y); });
+    panel.AttachToDebugPanel(componentSection, "Acceleration dir", [this]() {return "x: " + std::to_string(m_accelerationDirection.x) + "; y: " + std::to_string(m_accelerationDirection.y); });
+}
+#endif
+
 void yang::MoveComponent::SetSpeed(float speed)
 {
     m_speed = std::clamp(speed, 0.f, m_maxSpeed);

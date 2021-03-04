@@ -164,9 +164,8 @@ void yang::ApplicationLayer::Cleanup()
     m_pGameLayer.reset();
 
 	ResourceCache::Get()->Cleanup();
+    m_pFontLoader.reset();
 
-	// cleanup fonts before graphics
-	m_pFontLoader.reset();
 	m_pGraphics.reset();
     m_pWindow.reset();
     m_pAudio.reset();
